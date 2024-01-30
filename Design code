@@ -1,0 +1,12 @@
+module gray_to_binary_converter (
+  input wire [2:0] gray_code,
+  output reg [2:0] binary_output
+);
+
+  always @* begin
+    binary_output[2] = gray_code[2] ^ gray_code[1];
+    binary_output[1] = binary_output[2] ^ gray_code[0];
+    binary_output[0] = gray_code[0] ^ binary_output[1];
+  end
+
+endmodule
