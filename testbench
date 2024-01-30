@@ -1,0 +1,29 @@
+module tb_gray_to_binary_converter;
+
+  reg [2:0] gray_code;
+  wire [2:0] binary_output;
+
+  gray_to_binary_converter uut (
+    .gray_code(gray_code),
+    .binary_output(binary_output)
+  );
+
+  initial begin
+    // Test 1: Gray code 010
+    gray_code = 3'b010;
+    #10 $display("Time=%0t GrayCode=%b BinaryOutput=%b", $time, gray_code, binary_output);
+
+    // Test 2: Gray code 111
+    gray_code = 3'b111;
+    #10 $display("Time=%0t GrayCode=%b BinaryOutput=%b", $time, gray_code, binary_output);
+
+    // Test 3: Gray code 001
+    gray_code = 3'b001;
+    #10 $display("Time=%0t GrayCode=%b BinaryOutput=%b", $time, gray_code, binary_output);
+
+    // Add more test cases as needed
+
+    $finish;
+  end
+
+endmodule
